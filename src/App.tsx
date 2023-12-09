@@ -10,7 +10,7 @@ import axios from "axios";
 
 function App() {
 
-const [characters, setCharacters] = useState<Characters[]>()
+const [characters, setCharacters] = useState<Characters[]>([])
 
 function fetchCharacters() {
     axios.get('https://rickandmortyapi.com/api/character')
@@ -28,8 +28,7 @@ function fetchCharacters() {
             <Navigation/>
             <Routes>
                 <Route path={"/"} element={<Welcome/>}/>
-                <Route path={"/characters"} element={<CharacterGallery/>}/>
-
+                <Route path={"/characters"} element={<CharacterGallery characters={characters}/>}/>
             </Routes>
         </>
     )

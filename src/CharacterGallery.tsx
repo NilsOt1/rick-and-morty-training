@@ -1,9 +1,16 @@
 import CharacterCard from "./CharacterCard.tsx";
+import {Characters} from "./characters.ts";
 
-export default function CharacterGallery() {
+type characterProps = {
+    characters: Characters[]
+}
+export default function CharacterGallery(props: characterProps) {
     return (
         <>
-        <CharacterCard/>
+
+            {props.characters.map(character =>
+                <CharacterCard key={character.id} characters={character}/>)}
+
 
         </>
     )
